@@ -1,0 +1,24 @@
+server:
+  port: 8080  # Port for the HTTP server
+  max_upload_size: 50MB  # Maximum allowed size for file uploads
+
+storage:
+  type: file  # Can be 'file' or 'cloud' (for future extensions)
+  file_path: "/path/to/storage"  # Path for storing uploaded blobs in the file system
+
+logging:
+  level: "info"  # Log level: debug, info, error
+  format: "json"  # Log format: text or json
+  output: "stdout"  # Log output: stdout, stderr, or a file path
+
+security:
+  allowed_mime_types:  # List of MIME types allowed for upload
+    - "application/pdf"
+    - "text/plain"
+    - "application/epub+zip"
+    - "application/mobipocket-ebook"
+  hash_blacklist_path: "/path/to/blacklist.txt"  # Path to file with hash blacklists
+
+auth:
+  nostr_required: true  # Whether Nostr authorization is required for all operations
+  expiration_time: 24h  # Default expiration time for Nostr events
